@@ -39,7 +39,7 @@ jobs:
           operation_type: download
           exclude: bucket.test.ts
       - name: Echo Folder
-        run: ls ${{ github.workspace }}/a -r
+        run: ls ${{ github.workspace }}/a -R
       # 删除桶
       - name: Delete Bucket on Huawei Cloud OBS
         uses: ./
