@@ -28,6 +28,7 @@ jobs:
           local_file_path: ts-jest
           obs_file_path: ////src////1///
           operation_type: upload
+          include_self_folder: true
       # 从桶内下载文件
       - name: Download from Huawei Cloud OBS
         uses: ./
@@ -36,6 +37,9 @@ jobs:
           local_file_path: ${{ github.workspace }}///a
           obs_file_path: src
           operation_type: download
+          exclude: bucket.test.ts
+      - name: Echo Folder
+        run: ls ${{ github.workspace }}/a
       # 删除桶
       - name: Delete Bucket on Huawei Cloud OBS
         uses: ./
