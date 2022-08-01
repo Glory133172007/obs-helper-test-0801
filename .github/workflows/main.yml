@@ -25,16 +25,16 @@ jobs:
         uses: ./
         with:
           bucket_name: tookit-new-bucket-1
-          local_file_path: README.md
-          obs_file_path: ////
+          local_file_path: ts-jest
+          obs_file_path: ////src////1///
           operation_type: upload
       # 从桶内下载文件
       - name: Download from Huawei Cloud OBS
         uses: ./
         with:
           bucket_name: tookit-new-bucket-1
-          local_file_path: ${{ github.workspace }}/
-          obs_file_path: README.md
+          local_file_path: ${{ github.workspace }}///a
+          obs_file_path: src
           operation_type: download
       # 删除桶
       - name: Delete Bucket on Huawei Cloud OBS
