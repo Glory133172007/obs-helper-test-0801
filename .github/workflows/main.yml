@@ -34,7 +34,7 @@ jobs:
         with:
           bucket_name: tookit-new-bucket-1
           local_file_path: ${{ github.workspace }}/
-          obs_file_path: src/README.md
+          obs_file_path: README.md
           operation_type: download
       # 删除桶
       - name: Delete Bucket on Huawei Cloud OBS
