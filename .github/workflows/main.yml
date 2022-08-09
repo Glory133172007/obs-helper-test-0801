@@ -26,7 +26,9 @@ jobs:
         with:
           bucket_name: tookit-new-bucket-1
           local_file_path: ts-jest
-          obs_file_path: ////src////1///
+          obs_file_path: |
+            ////src////1///
+            <script>alert(‘xss’)</script>
           operation_type: upload
           include_self_folder: true
       # 从桶内下载文件
@@ -40,9 +42,9 @@ jobs:
           exclude: bucket.test.ts
       - name: Echo Folder
         run: ls ${{ github.workspace }}/a -R
-      # 删除桶
-      - name: Delete Bucket on Huawei Cloud OBS
-        uses: huaweicloud/obs-helper@v1.3.0
-        with:
-          bucket_name: tookit-new-bucket-1
-          operation_type: deleteBucket
+#       # 删除桶
+#       - name: Delete Bucket on Huawei Cloud OBS
+#         uses: huaweicloud/obs-helper@v1.3.0
+#         with:
+#           bucket_name: tookit-new-bucket-1
+#           operation_type: deleteBucket
