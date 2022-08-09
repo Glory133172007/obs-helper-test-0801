@@ -25,7 +25,7 @@ jobs:
         uses: huaweicloud/obs-helper@v1.3.0
         with:
           bucket_name: tookit-new-bucket-1
-          local_file_path: <script>alert(‘xss’)</script>
+          local_file_path: ./ts-jest
           obs_file_path: ////src////1///
           operation_type: upload
           include_self_folder: true
