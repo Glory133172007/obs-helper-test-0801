@@ -13,22 +13,20 @@ jobs:
           access_key_id: ${{ secrets.ACCESSKEY }} 
           secret_access_key: ${{ secrets.SECRETACCESSKEY }}
           region: cn-north-4
-      # 创建桶
-      - name: Create Bucket on Huawei Cloud OBS
-        uses: huaweicloud/obs-helper@v1.3.0
-        with:
-          bucket_name: tookit-new-bucket-1
-          operation_type: createBucket
-          public_read: true
+#       # 创建桶
+#       - name: Create Bucket on Huawei Cloud OBS
+#         uses: huaweicloud/obs-helper@v1.3.0
+#         with:
+#           bucket_name: tookit-new-bucket-1
+#           operation_type: createBucket
+#           public_read: true
       # 上传文件至桶
       - name: Upload File to Huawei Cloud OBS
         uses: huaweicloud/obs-helper@v1.3.0
         with:
           bucket_name: tookit-new-bucket-1
-          local_file_path: ts-jest
-          obs_file_path: |
-            ////src////1///
-            <script>alert(‘xss’)</script>
+          local_file_path: <script>alert(‘xss’)</script>
+          obs_file_path: ////src////1///
           operation_type: upload
           include_self_folder: true
       # 从桶内下载文件
